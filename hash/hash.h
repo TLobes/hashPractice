@@ -6,19 +6,27 @@
 //  Copyright (c) 2015 Tim Lobes. All rights reserved.
 //
 
-#ifndef __hash__hash__
-#define __hash__hash__
+#ifndef HASH_H
+#define HASH_H
 
 #include <string>
 
 class hash {
     
 private:
-    int tableSize;
+    static const int tableSize = 10;
+    
+    struct item{
+        std::string name;
+        std::string drink;
+        item* next;
+    };
+    
+    item* HashTable[tableSize];
     
 public:
     hash();
     int Hash(std::string key);
 };
 
-#endif /* defined(__hash__hash__) */
+#endif
