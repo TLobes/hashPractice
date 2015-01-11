@@ -19,6 +19,32 @@ hash::hash() {
     }
 }
 
+void hash::AddItem(std::string name, std::string drink) {
+    int index = Hash(name);
+    
+    if (HashTable[index]->name == "empty")
+    {
+        HashTable[index]->name = name;
+        HashTable[index]->drink = drink;
+    }
+    else
+    {
+        item* Ptr = HashTable[index];
+        item* n = new item;
+        n->name = name;
+        n->drink = drink;
+        n->next = NULL;
+        
+        while(Ptr->next != NULL)
+        {
+            Ptr = Ptr->next;
+        }
+        
+        Ptr->next = n;
+    }
+        
+};
+
 int hash::Hash(std::string key) {
     int hash = 0;
     //int index;

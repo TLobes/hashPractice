@@ -27,6 +27,7 @@ private:
 public:
     hash();
     int Hash(std::string key);
+    void AddItem(std::string name, std::string drink);
 };
 
 #endif
