@@ -43,7 +43,30 @@ void hash::AddItem(std::string name, std::string drink) {
         Ptr->next = n;
     }
         
-};
+}
+
+int hash::NumberOfItemsInIndex(int index)
+{
+    int count = 0;
+    
+    if (HashTable[index]->name == "empty")
+    {
+        return count;
+    }
+    else
+    {
+        count++;
+        item* Ptr = HashTable[index];
+        
+        while (Ptr->next != NULL)
+        {
+            count ++;
+            Ptr = Ptr->next;
+        }
+    }
+    
+    return count;
+}
 
 int hash::Hash(std::string key) {
     int hash = 0;
