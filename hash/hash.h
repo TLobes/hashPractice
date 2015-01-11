@@ -29,6 +29,7 @@ public:
     int Hash(std::string key);
     void AddItem(std::string name, std::string drink);
     int NumberOfItemsInIndex(int index);
+    void PrintTable();
 };
 
 #endif
