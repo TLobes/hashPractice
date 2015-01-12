@@ -30,6 +30,7 @@ public:
     void AddItem(std::string name, std::string drink);
     int NumberOfItemsInIndex(int index);
     void PrintTable();
+    void PrintItemsInIndex(int index);
 };
 
 #endif

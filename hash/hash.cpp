@@ -9,6 +9,7 @@
 #include "hash.h"
 #include <iostream>
 #include <string>
+#include <cassert>
 
 hash::hash() {
     for (int i = 0; i < tableSize; i++) {
@@ -35,7 +36,7 @@ void hash::AddItem(std::string name, std::string drink) {
         n->drink = drink;
         n->next = NULL;
         
-        while(Ptr->next != NULL)
+        while (Ptr->next != NULL)
         {
             Ptr = Ptr->next;
         }
@@ -81,6 +82,30 @@ void hash::PrintTable() {
         std::cout << HashTable[i]->drink << std::endl;
         std::cout << "# of items = " << number << std::endl;
         std::cout << "---------------\n";
+    }
+}
+
+void hash::PrintItemsInIndex(int index) {
+    
+    assert(index < tableSize && index >= 0); // Remove? Change into if then? Hmmm
+    
+    item* Ptr = HashTable[index];
+    
+    if (Ptr->name == "empty")
+    {
+        std::cout << "Bucket " << index << " is empty";
+    }
+    else
+    {
+        std::cout << "Bucket " << index << " contains:" << std::endl;
+        
+        while(Ptr != NULL) {
+            std::cout << "---------------\n";
+            std::cout << Ptr->name << std::endl;
+            std::cout << Ptr->drink << std::endl;
+            std::cout << "---------------\n";
+            Ptr = Ptr->next;
+        }
     }
 }
 

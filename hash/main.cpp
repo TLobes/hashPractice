@@ -31,7 +31,9 @@ int main(int argc, const char * argv[]) {
     
     createData(myHash);
     
-    myHash.PrintTable();
+    //myHash.PrintTable();
+    
+    myHash.PrintItemsInIndex(7);
 
     return 0;
 }
