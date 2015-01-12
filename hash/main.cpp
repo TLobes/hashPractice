@@ -25,15 +25,30 @@ void createData(hash myHash) {
     myHash.AddItem("Phil", "Coffee");
 }
 
+void searchData(hash myHash) {
+    std::string name;
+    
+    while (name != "exit")
+    {
+        std::cout << "Search for ";
+        std::cin >> name;
+        if(name != "exit")
+        {
+            myHash.FindDrink(name);
+        }
+    }
+}
+
 int main(int argc, const char * argv[]) {
     
     hash myHash;
     
     createData(myHash);
+    searchData(myHash);
     
     //myHash.PrintTable();
     
-    myHash.PrintItemsInIndex(7);
+    //myHash.PrintItemsInIndex(7);
 
     return 0;
 }

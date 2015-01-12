@@ -109,6 +109,31 @@ void hash::PrintItemsInIndex(int index) {
     }
 }
 
+void hash::FindDrink(std::string name) {
+    int index = Hash(name);
+    bool foundName = false;
+    std::string drink;
+    
+    item* Ptr = HashTable[index];
+    while(Ptr != NULL)
+    {
+        if (Ptr->name == name) {
+            foundName = true;
+            drink = Ptr->drink;
+        }
+        Ptr = Ptr->next;
+    }
+    
+    if (foundName)
+    {
+        std::cout << "Favorite Drink = " << drink << std::endl;
+    }
+    else
+    {
+        std::cout << name << "'s info was not found in the hash table\n" << std::endl;
+    }
+}
+
 int hash::Hash(std::string key) {
     int hash = 0;
     
