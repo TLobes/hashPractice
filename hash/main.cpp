@@ -13,12 +13,9 @@
 
 int main(int argc, const char * argv[]) {
     
-    int index;
-    hash hashObj;
+    hash myHash;
     
-    index = hashObj.Hash("Tim");
-    
-    std::cout << "index = " << index << std::endl;
+    myHash.PrintTable();
     
     return 0;
 }

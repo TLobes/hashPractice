@@ -69,6 +69,9 @@ int hash::NumberOfItemsInIndex(int index) {
 
 void hash::PrintTable() {
     int number;
+    
+    std::cout << "Max tablesize = " << tableSize << std::endl;
+    
     for (int i = 0; i < tableSize; i++)
     {
         number = NumberOfItemsInIndex(i);
@@ -83,11 +86,9 @@ void hash::PrintTable() {
 
 int hash::Hash(std::string key) {
     int hash = 0;
-    //int index;
     
     for (int i = 0; i < key.length(); i++) {
         hash = hash + (int)key[i];
-        std::cout << "hash = " << hash << std::endl;
     }
     
     return hash % tableSize;
