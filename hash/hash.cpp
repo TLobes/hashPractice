@@ -134,6 +134,64 @@ void hash::FindDrink(std::string name) {
     }
 }
 
+void hash::RemoveItem(std::string name) {
+    int index = Hash(name);
+    
+    item* delPtr;
+    item* P1;
+    item* P2;
+    
+    if (HashTable[index]->name == "empty" && HashTable[index]->drink == "empty")
+    {
+        std::cout << name << " was not found in the hash table\n";
+    }
+    else if (HashTable[index]->name == name && HashTable[index]->next == NULL)
+    {
+        HashTable[index]->name = "empty";
+        HashTable[index]->drink = "empty";
+        
+        std::cout << name << " was removed from the hash table\n";
+    }
+    else if (HashTable[index]->name == name)
+    {
+        delPtr = HashTable[index];
+        HashTable[index] = HashTable[index]->next;
+        delete delPtr;
+        
+        std::cout << name << " was removed from the hash table\n";
+    }
+    
+    // Bucket contains items but first item is not a match
+    else
+    {
+        P1 = HashTable[index]->next;
+        P2 = HashTable[index];
+        
+        while (P1 != NULL && P1->name != name)
+        {
+            P2 = P1;
+            P1 = P1->next;
+        }
+        
+        // No match was found
+        if(P1 == NULL)
+        {
+            std::cout << name << " was not found in the hash table\n";
+        }
+        
+        // Match is found
+        else
+        {
+            delPtr = P1;
+            P1 = P1->next;
+            P2->next = P1;
+            
+            delete delPtr;
+            std::cout << name << " was removed from the hash table\n";
+        }
+    }
+}
+
 int hash::Hash(std::string key) {
     int hash = 0;
     

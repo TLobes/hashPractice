@@ -39,16 +39,34 @@ void searchData(hash myHash) {
     }
 }
 
+void removeItem(hash myHash) {
+    std::string name;
+    
+    while (name != "exit")
+    {
+        std::cout << "Remove item ";
+        std::cin >> name;
+        if(name != "exit")
+        {
+            myHash.RemoveItem(name);
+        }
+    }
+}
+
 int main(int argc, const char * argv[]) {
     
     hash myHash;
     
     createData(myHash);
-    searchData(myHash);
+    myHash.PrintItemsInIndex(2);
+    //searchData(myHash);
+    removeItem(myHash);
+    
+    
     
     //myHash.PrintTable();
     
-    //myHash.PrintItemsInIndex(7);
+    myHash.PrintItemsInIndex(2);
 
     return 0;
 }
