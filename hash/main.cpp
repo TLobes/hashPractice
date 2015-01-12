@@ -11,11 +11,27 @@
 
 #include "hash.h"
 
+void createData(hash myHash) {
+    myHash.AddItem("Tim", "Jack & Coke");
+    myHash.AddItem("Annie", "Boba");
+    myHash.AddItem("Reza", "Muscle Milk");
+    myHash.AddItem("Haris", "Hot Tea");
+    myHash.AddItem("Ryan", "Ice Water");
+    myHash.AddItem("Eddie", "Not Sure");
+    myHash.AddItem("Calin", "Soylent");
+    myHash.AddItem("Robyn", "Pearl Tea");
+    myHash.AddItem("The Doc", "Pepper");
+    myHash.AddItem("Tapper", "Root Beer");
+    myHash.AddItem("Phil", "Coffee");
+}
+
 int main(int argc, const char * argv[]) {
     
     hash myHash;
     
-    myHash.PrintTable();
+    createData(myHash);
     
+    myHash.PrintTable();
+
     return 0;
 }
